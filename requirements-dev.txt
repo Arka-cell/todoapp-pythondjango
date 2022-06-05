@@ -1,0 +1,3 @@
+black==22.1.0 # used for formatting
+django-doctor==2.6.0 # find and fix around 40 breaches of Django best practice 
+requests==2.27.1 # convenient to be used for scripts to test the API on some scenarios (such as file uploads)
