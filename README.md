@@ -36,3 +36,13 @@ DATABASE_NAME=todo
 DATABASE_PASSWORD=password
 DATABASE_PORT=5432
 ```
+### Migrate to database and run project:
+Run the following command to insert your tables to the Postgresql database and run your projects:
+
+```Shell
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
+Open your browser into the following link; http://127.0.0.1:8000/.
