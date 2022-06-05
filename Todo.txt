@@ -1,0 +1,11 @@
+TODO:
+-Creates project
+-Create README.md
+-Initialize repository and publish it on public
+-Configure rest_framework, psycopg2 and drf-spectacular, and decouple.Config with environment variables.
+-Update README.txt on how to launch project, create database, and migrate to database including docs on drf-spectacular.
+-Create ERD diagram on project.
+-Create User model and authentication workflow.
+-Create TaskTypes and Tasks models.
+-Create Views for Tasks and TaskTypes.
+-Create some default TaskTypes objects that can be accessed by any user.
