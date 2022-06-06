@@ -1,0 +1,9 @@
+[
+    {
+        "model": "todo.TaskType",
+        "pk": 1,
+        "fields": {
+            "name": "professional"
+        }
+    }
+]
