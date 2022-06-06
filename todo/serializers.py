@@ -2,6 +2,7 @@ from rest_framework import serializers
 from todo.models import User
 from django.contrib.auth.forms import PasswordResetForm
 
+
 class SignUpSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True, required=True, style={"input_type": "password"}

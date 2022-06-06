@@ -11,6 +11,7 @@ from rest_framework.generics import CreateAPIView
 
 # Create your views here.
 
+
 class SignUpView(CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = SignUpSerializer
