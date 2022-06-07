@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status, generics, viewsets
 from todo.models import Task, TaskType
 from django.db.models import Q
-from .serializers import SignUpSerializer, TaskTypeSerializer
+from .serializers import SignUpSerializer, TaskTypeSerializer, TaskSerializer
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from rest_framework.generics import CreateAPIView
 
@@ -43,3 +43,10 @@ class TaskTypesViewset(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     def get_queryset(self):
         return TaskType.objects.filter(Q(user=self.request.user) | Q(user=None))
+
+
+class TasksViewset(viewsets.ModelViewSet):
+    serializer_class = TaskSerializer
+    permission_classes = [IsAuthenticated]
+    def get_queryset(self):
+        return Task.objects.filter(user=self.request.user)
