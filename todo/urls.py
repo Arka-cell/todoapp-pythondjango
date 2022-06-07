@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import TaskTypesViewset, SignUpView
 from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken import views
 
 urlpatterns = [
     path(
@@ -13,6 +14,6 @@ urlpatterns = [
         TaskTypesViewset.as_view({"get": "retrieve", "patch": "update"}),
         name="tasktype",
     ),
-    path("login/", ObtainAuthToken.as_view(), name="login"),
+    path("login/", views.obtain_auth_token),
     path("sign-up/", SignUpView.as_view(), name="signup"),
 ]
