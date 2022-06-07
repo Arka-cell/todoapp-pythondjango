@@ -41,6 +41,7 @@ class SignUpView(CreateAPIView):
 class TaskTypesViewset(viewsets.ModelViewSet):
     serializer_class = TaskTypeSerializer
     permission_classes = [IsAuthenticated]
+
     def get_queryset(self):
         return TaskType.objects.filter(Q(user=self.request.user) | Q(user=None))
 
@@ -48,5 +49,6 @@ class TaskTypesViewset(viewsets.ModelViewSet):
 class TasksViewset(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated]
+
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user)

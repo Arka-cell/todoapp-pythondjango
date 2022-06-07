@@ -15,7 +15,10 @@ urlpatterns = [
         name="tasktype",
     ),
     path("tasks/", TasksViewset.as_view({"get": "list", "post": "create"})),
-    path("tasks/<int:pk>", TasksViewset.as_view({"get": "retrieve", "patch": "partial_update"})),
+    path(
+        "tasks/<int:pk>",
+        TasksViewset.as_view({"get": "retrieve", "patch": "partial_update"}),
+    ),
     path("login/", views.obtain_auth_token),
     path("sign-up/", SignUpView.as_view(), name="signup"),
 ]
