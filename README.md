@@ -48,4 +48,4 @@ python manage.py runserver
 2. Open your browser into the following link; http://127.0.0.1:8000/api/schema/swagger-ui/#/.
 
 ### Navigating the API with Swagger UI
-1. First, create your account in <a href="http://127.0.0.1:8000/api/schema/swagger-ui/#/sign-up/sign_up_create" target=""_blank>/api/sign-up/</a>
+1. First, create your account in <a href="http://127.0.0.1:8000/api/schema/swagger-ui/#/sign-up/sign_up_create" target="_blank">/api/sign-up/</a>
