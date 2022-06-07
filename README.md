@@ -49,3 +49,5 @@ python manage.py runserver
 
 ### Navigating the API with Swagger UI
 1. First, create your account in <a href="http://127.0.0.1:8000/api/schema/swagger-ui/#/sign-up/sign_up_create" target="_blank">/api/sign-up/</a>
+
+![msedge_lG03L9Cy5v](https://user-images.githubusercontent.com/55358999/172438416-aff74a41-6c79-4b76-8e2a-518315be613d.gif)
