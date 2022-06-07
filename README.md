@@ -1,7 +1,11 @@
 ### Python Configuration:
 1. You need to install Python from https://www.python.org/downloads/.
 2. Once you install Python, run the following commands:
-    In Windows:
+
+```
+In Windows:
+```
+
 ```Shell
     python -m venv venv
     cd venv/scripts
@@ -10,7 +14,9 @@
     cd ..
     pip install -r requirements.txt
 ```
+
     In Linux:
+
 ```Shell
     python3 -m venv venv
     source venv/bin/activate
