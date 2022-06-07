@@ -1,5 +1,6 @@
+from wsgiref import validate
 from rest_framework import serializers
-from todo.models import TaskType, User
+from todo.models import TaskType, User, Task
 from django.contrib.auth.forms import PasswordResetForm
 
 
@@ -34,7 +35,10 @@ class SignUpSerializer(serializers.ModelSerializer):
 class TaskTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaskType
-        fields = ["name"]
+        fields = ["id", "name"]
     
-    def validate_user(self):
-        self.validated_data['user'] = self.request.user.id
+    def create(self, validated_data):
+        validated_data['user'] = self.context['request'].user
+        return super().create(validated_data)
+
+
