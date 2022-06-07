@@ -42,3 +42,11 @@ class TaskTypeSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
 
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ["id", "name", "description", "has_finished"]
+    
+    def create(self, validated_data):
+        validated_data['user'] = self.context['request'].user
+        return super().create(validated_data)
