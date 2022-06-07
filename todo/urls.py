@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import TaskTypesViewset, SignUpView
+from .views import TaskTypesViewset, SignUpView, TasksViewset
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken import views
 
@@ -11,7 +11,7 @@ urlpatterns = [
     ),
     path(
         "task-types/<int:pk>",
-        TaskTypesViewset.as_view({"get": "retrieve", "patch": "update"}),
+        TaskTypesViewset.as_view({"get": "retrieve", "patch": "partial_update"}),
         name="tasktype",
     ),
     path("login/", views.obtain_auth_token),
