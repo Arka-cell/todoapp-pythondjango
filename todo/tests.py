@@ -1,11 +1,13 @@
 from rest_framework.test import APITestCase
 from rest_framework.reverse import reverse
-from todo.models import User
+from todo.models import TaskType, User
 from rest_framework.test import force_authenticate
 from rest_framework.test import APIRequestFactory
 from rest_framework.authtoken.views import obtain_auth_token
 from utils.custom_log import get_log
 from todo.views import TaskTypesViewset
+from todo.serializers import TaskTypeSerializer
+from typing import Optional, Any
 
 log = get_log()
 
@@ -62,7 +64,7 @@ class AccountTest(APITestCase):
         )
 
 
-class TestTasks(APITestCase):
+class TestTaskTypes(APITestCase):
     def setUp(self) -> None:
         self.user_data = {
             "email": "test@email.com",
@@ -72,8 +74,9 @@ class TestTasks(APITestCase):
         self.user.set_password("s0m$Password")
         self.user.save()
         self.task_type_data = {"name": "Sports"}
+        self.serializer = TaskTypeSerializer
 
-    def test_post_task_type(self) -> None:
+    def test_task_types(self) -> None:
         # force authentication
         request = factory.post("/api/task-types/", data=self.task_type_data)
         force_authenticate(request, user=self.user)
@@ -91,3 +94,19 @@ class TestTasks(APITestCase):
             self.task_type_data["name"],
             msg=f"\nStatus code is {response.data} instead of {self.task_type_data}.",
         )
+        serializer = self.serializer(TaskType.objects.filter(user=self.user), many=True)
+        request = factory.get("/api/task-types/")
+        force_authenticate(request, user=self.user)
+        response = view(request)
+        response.render()
+        self.assertEqual(
+            response.status_code,
+            200,
+            msg=f"\nStatus code is {response.status_code} instead of 200.",
+        )
+        log.warning(self.__dict__)
+        self.assertEqual(
+            response.data,
+            serializer.data,
+            msg=f"\nStatus code is {response.data} instead of {serializer.data}.",
+        )    
