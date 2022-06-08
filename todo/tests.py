@@ -43,3 +43,19 @@ class AccountTest(APITestCase):
         )
         
 
+    def test_login(self) -> None:
+        # adding fixtures
+        factory = APIRequestFactory()
+        
+        del self.data["email"]
+        # force authentication
+        request = factory.post('/api/login/', data=self.data)
+        force_authenticate(request, user=self.user)
+        response = obtain_auth_token(request)
+        response.render()
+        log.info(response.content)
+        self.assertEqual(
+            response.status_code,
+            200,
+            msg=f"\nStatus code is {response.status_code} instead of 200.",
+        )
