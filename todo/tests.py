@@ -27,3 +27,19 @@ class AccountTest(APITestCase):
             "password": "s0m$Password",
         }
     
+    def test_sign_up(self) -> None:
+        """
+        BDD Scenario signup a user:
+        -GIVEN a non-registered user; Aka Anonymous User
+        -WHEN he registers in the sign-up endpoint
+        -THEN a successful response with status code 201
+        """
+        self.create_url = reverse(f"signup")
+        response = self.client.post(self.create_url, self.sign_up_data, format="json")
+        self.assertEqual(
+            response.status_code,
+            201,
+            msg=f"\nStatus code is {response.status_code} instead of 201.",
+        )
+        
+
