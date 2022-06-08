@@ -65,3 +65,10 @@ ___
 ___
 ![msedge_QVgxchN9Oe](https://user-images.githubusercontent.com/55358999/172487407-4b708c0e-0201-48fb-bed8-bd397b8beea5.gif)
 ___
+
+### Testing
+1. First, give your newly created user the ability to create databases; e.g:
+```
+ALTER USER todouser CREATEDB;
+```
+2. Then, run the following command to perform your tests `python manage.py test`
