@@ -1,7 +1,11 @@
 ### Python Configuration:
 1. You need to install Python from https://www.python.org/downloads/.
-2. Once you install Python, run the following commands:
-    In Windows:
+2. Once you install Python, clone the repo, and inside it, run the following commands:
+
+```
+In Windows:
+```
+
 ```Shell
     python -m venv venv
     cd venv/scripts
@@ -10,7 +14,9 @@
     cd ..
     pip install -r requirements.txt
 ```
+
     In Linux:
+
 ```Shell
     python3 -m venv venv
     source venv/bin/activate
@@ -49,3 +55,13 @@ python manage.py runserver
 
 ### Navigating the API with Swagger UI
 1. First, create your account in <a href="http://127.0.0.1:8000/api/schema/swagger-ui/#/sign-up/sign_up_create" target="_blank">/api/sign-up/</a>
+
+___
+![msedge_lG03L9Cy5v](https://user-images.githubusercontent.com/55358999/172438416-aff74a41-6c79-4b76-8e2a-518315be613d.gif)
+___
+
+2. Now, go to the following link to sign-in, get your token and use it in your authentication header; http://127.0.0.1:8000/api/schema/swagger-ui/#/login/login_create. And surf through the API according to endpoints.
+
+___
+![msedge_QVgxchN9Oe](https://user-images.githubusercontent.com/55358999/172487407-4b708c0e-0201-48fb-bed8-bd397b8beea5.gif)
+___
