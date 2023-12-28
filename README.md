@@ -62,9 +62,6 @@ ___
 
 2. Now, go to the following link to sign-in, get your token and use it in your authentication header; http://127.0.0.1:8000/api/schema/swagger-ui/#/login/login_create. And surf through the API according to endpoints.
 
-___
-![msedge_QVgxchN9Oe](https://user-images.githubusercontent.com/55358999/172487407-4b708c0e-0201-48fb-bed8-bd397b8beea5.gif)
-___
 
 ### Testing
 1. First, give your newly created user the ability to create databases; e.g:
